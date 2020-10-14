@@ -22,6 +22,8 @@
         <module>file</module>
         <module>changgou_service_fileupload</module>
         <module>changgou_service_search</module>
+        <module>changgou_service_page</module>
+        <module>changgou_service_page</module>
     </modules>
 
 

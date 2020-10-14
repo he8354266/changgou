@@ -2,8 +2,11 @@ package com.changgou.search.service.impl;
 
 
 import com.alibaba.fastjson.JSON;
+import com.changgou.goods.feign.CategoryFeign;
 import com.changgou.goods.feign.SkuFeign;
+import com.changgou.goods.feign.SpuFeign;
 import com.changgou.goods.pojo.Sku;
+import com.changgou.goods.pojo.Spu;
 import com.changgou.search.dao.ESManagerMapper;
 import com.changgou.search.pojo.SkuInfo;
 import com.changgou.search.service.ESManagerService;
@@ -26,6 +29,10 @@ public class ESManagerServiceImpl implements ESManagerService {
     @Autowired
     private SkuFeign skuFeign;
     @Autowired
+    private SpuFeign spuFeign;
+    @Autowired
+    private CategoryFeign categoryFeign;
+    @Autowired
     private ESManagerMapper esManagerMapper;
 
     //创建索引库结构
@@ -42,6 +49,7 @@ public class ESManagerServiceImpl implements ESManagerService {
     public void importAll() {
 
         List<Sku> skuList = skuFeign.findSkuListBySpuId("all");
+
         if (skuList == null || skuList.size() <= 0) {
             throw new RuntimeException("当前没有数据被查询到,无法导入索引库");
         }

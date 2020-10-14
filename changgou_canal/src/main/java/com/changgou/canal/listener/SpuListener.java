@@ -43,5 +43,10 @@ public class SpuListener {
             System.out.println("新货下架:" + newData.get("id"));
             rabbitTemplate.convertAndSend(RabbitMQConfig.GOODS_DOWN_EXCHANGE, "", newData.get("id"));
         }
+        //获取最新被审核通过的商品  status    0->1
+        if("0".equals(oldData.get("status")) && "1".equals(newData.get("status"))){
+            System.out.println("新货审核:" + newData.get("status"));
+            rabbitTemplate.convertAndSend(RabbitMQConfig.GOODS_UP_EXCHANGE,"",newData.get("id"));
+        }
     }
 }

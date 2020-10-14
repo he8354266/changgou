@@ -48,6 +48,11 @@ public class SpuController {
         Spu spu = spuService.findById(id);
         return new Result(true, StatusCode.OK, "查询成功", spu);
     }
+    @GetMapping("/findSpuById/{id}")
+    public Result<Spu> findSpuById(@PathVariable("id") String id){
+        Spu spu = spuService.findById(id);
+        return new Result(true,StatusCode.OK,"查询成功",spu);
+    }
 
 
     /***
