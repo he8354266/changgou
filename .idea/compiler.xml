@@ -27,6 +27,7 @@
         <module name="changgou_service_system_api" />
         <module name="changgou_service_user" />
         <module name="changgou_service_user_api" />
+        <module name="changgou_user_oauth" />
         <module name="changgou_web" />
       </profile>
     </annotationProcessing>
@@ -56,6 +57,7 @@
       <module name="changgou_service_system_api" target="1.8" />
       <module name="changgou_service_user" target="1.8" />
       <module name="changgou_service_user_api" target="1.8" />
+      <module name="changgou_user_oauth" target="1.8" />
       <module name="changgou_web" target="1.8" />
       <module name="file" target="1.8" />
     </bytecodeTargetLevel>
