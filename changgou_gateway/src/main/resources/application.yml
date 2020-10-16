@@ -36,6 +36,12 @@ spring:
                   - Path=/search/**
                 filters:
                   - StripPrefix= 1
+              - id: order
+                uri: lb://order
+                predicates:
+                  - Path=/order/**
+                filters:
+                  - StripPrefix= 1
 server:
   port: 9101
 eureka:
