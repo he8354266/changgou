@@ -64,6 +64,6 @@ public interface UserService {
     Page<User> findPage(Map<String, Object> searchMap, int page, int size);
 
 
-
+    Integer pointsAdd(String username,Integer points);
 
 }

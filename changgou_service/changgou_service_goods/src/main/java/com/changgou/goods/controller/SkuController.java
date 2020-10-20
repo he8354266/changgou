@@ -1,9 +1,9 @@
 package com.changgou.goods.controller;
+import com.changgou.goods.pojo.Sku;
+import com.changgou.goods.service.SkuService;
 import com.changgou.pojo.PageResult;
 import com.changgou.pojo.Result;
 import com.changgou.pojo.StatusCode;
-import com.changgou.goods.service.SkuService;
-import com.changgou.goods.pojo.Sku;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -113,5 +113,10 @@ public class SkuController {
         map.put("status","1");
         List<Sku> skuList = skuService.findList(map);
         return skuList;
+    }
+    @PostMapping("/decr/count")
+    public Result decrCount(@RequestParam("username") String username){
+        skuService.decrCount(username);
+        return new Result(true,StatusCode.OK,"库存扣减成功");
     }
 }

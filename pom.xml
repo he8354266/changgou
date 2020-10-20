@@ -19,6 +19,10 @@
 		<module>changgou_canal</module>
         <module>changgou_canals</module>
         <module>changgou_user_oauth</module>
+        <module>changgou_test</module>
+        <module>changgou_test</module>
+        <module>changgou_tests</module>
+        <module>changgou_common_fescar</module>
     </modules>
 
     <parent>

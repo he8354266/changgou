@@ -1,11 +1,13 @@
 package com.changgou.goods.service.impl;
 
 import com.changgou.goods.dao.SkuMapper;
-import com.changgou.goods.service.SkuService;
 import com.changgou.goods.pojo.Sku;
+import com.changgou.goods.service.SkuService;
+import com.changgou.order.pojo.OrderItem;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -14,10 +16,11 @@ import java.util.Map;
 
 @Service
 public class SkuServiceImpl implements SkuService {
-
+    private final static String CART = "cart_";
     @Autowired
     private SkuMapper skuMapper;
-
+@Autowired
+private RedisTemplate redisTemplate;
     /**
      * 查询全部列表
      * @return
@@ -102,6 +105,20 @@ public class SkuServiceImpl implements SkuService {
         PageHelper.startPage(page,size);
         Example example = createExample(searchMap);
         return (Page<Sku>)skuMapper.selectByExample(example);
+    }
+
+    @Override
+    public void decrCount(String username) {
+        //1.获取购物车中的数据
+        List<OrderItem> orderItemList = redisTemplate.boundHashOps(CART + username).values();
+        System.out.println(orderItemList);
+        //2.循环扣减库存并增加销量
+        for (OrderItem orderItem:orderItemList){
+            int count = skuMapper.decrCount(orderItem);
+            if (count<=0){
+                throw new RuntimeException("库存不足,请重试");
+            }
+        }
     }
 
     /**

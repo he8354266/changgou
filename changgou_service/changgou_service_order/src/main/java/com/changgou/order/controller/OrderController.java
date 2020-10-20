@@ -47,6 +47,8 @@ public class OrderController {
      */
     @PostMapping
     public Result add(@RequestBody Order order){
+        String username ="itcast";
+        order.setUsername(username);
         orderService.add(order);
         return new Result(true,StatusCode.OK,"添加成功");
     }

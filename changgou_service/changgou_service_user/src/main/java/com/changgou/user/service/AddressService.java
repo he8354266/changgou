@@ -63,7 +63,7 @@ public interface AddressService {
      */
     Page<Address> findPage(Map<String, Object> searchMap, int page, int size);
 
-
+    List<Address> addressList();
 
 
 }

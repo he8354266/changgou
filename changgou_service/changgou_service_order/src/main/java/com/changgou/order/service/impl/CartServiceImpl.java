@@ -84,6 +84,7 @@ public class CartServiceImpl implements CartService {
     public Map list(String username) {
         Map map = new HashMap();
         List<OrderItem> orderItemList = redisTemplate.boundHashOps(CART + username).values();
+
         map.put("orderItemList", orderItemList);
         //商品的总数量与总价格
         Integer totalNum = 0;

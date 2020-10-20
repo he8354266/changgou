@@ -30,9 +30,9 @@ public class CartController {
     }
 
     @GetMapping("/list")
-    public Result list() {
+    public Map list() {
         String username = "itcast";
         Map map = cartService.list(username);
-        return new Result(true, StatusCode.OK, "查询成功", map);
+        return map;
     }
 }

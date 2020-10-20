@@ -2,6 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile name="Annotation profile for changgou_web_order" enabled="true">
+        <sourceOutputDir name="../../changgou_tests/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../changgou_tests/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="changgou_web_order" />
+      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -10,6 +16,7 @@
         <module name="changgou_canal" />
         <module name="changgou_common" />
         <module name="changgou_common_db" />
+        <module name="changgou_common_fescar" />
         <module name="changgou_eureka" />
         <module name="changgou_gateway" />
         <module name="changgou_service_business" />
@@ -28,7 +35,12 @@
         <module name="changgou_service_system_api" />
         <module name="changgou_service_user" />
         <module name="changgou_service_user_api" />
-        <module name="changgou_web_order" />
+      </profile>
+      <profile name="Annotation profile for changgou_parent" enabled="true">
+        <sourceOutputDir name="../../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="changgou_tests" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -36,9 +48,11 @@
       <module name="changgou_canal" target="1.8" />
       <module name="changgou_common" target="1.8" />
       <module name="changgou_common_db" target="1.8" />
+      <module name="changgou_common_fescar" target="1.8" />
       <module name="changgou_eureka" target="1.8" />
       <module name="changgou_gateway" target="1.8" />
       <module name="changgou_parent" target="1.8" />
+      <module name="changgou_parent (1)" target="1.5" />
       <module name="changgou_service" target="1.8" />
       <module name="changgou_service_api" target="1.8" />
       <module name="changgou_service_business" target="1.8" />
@@ -58,6 +72,8 @@
       <module name="changgou_service_system_api" target="1.8" />
       <module name="changgou_service_user" target="1.8" />
       <module name="changgou_service_user_api" target="1.8" />
+      <module name="changgou_test" target="1.5" />
+      <module name="changgou_tests" target="1.8" />
       <module name="changgou_user_oauth" target="1.8" />
       <module name="changgou_web" target="1.8" />
       <module name="changgou_web_order" target="1.8" />

@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients(basePackages = {"com.changgou.order.feign"})
+@EnableFeignClients(basePackages = {"com.changgou.order.feign","com.changgou.user.feign"})
 public class WebOrderApplication {
 
     public static void main(String[] args) {
