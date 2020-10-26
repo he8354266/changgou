@@ -1,5 +1,6 @@
 package com.changgou.user.service;
 
+import com.changgou.order.pojo.Task;
 import com.changgou.user.pojo.User;
 import com.github.pagehelper.Page;
 
@@ -65,5 +66,5 @@ public interface UserService {
 
 
     Integer pointsAdd(String username,Integer points);
-
+    int updateUserPoint(Task task);
 }

@@ -2,11 +2,14 @@ package com.changgou.user.config;
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 /**
  * @Title: project
  * @Package * @Description:     * @author CodingSir
  * @date 2020/10/2014:36
  */
+@Configuration
 public class RabbitMQConfig {
     //添加积分任务交换机
     public static final String EX_BUYING_ADDPOINTUSER = "ex_buying_addpointuser";

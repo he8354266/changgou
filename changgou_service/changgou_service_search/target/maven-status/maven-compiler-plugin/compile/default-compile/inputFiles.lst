@@ -1,0 +1,10 @@
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\dao\ESManagerMapper.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\controller\ESManagerController.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\controller\SearchController.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\service\impl\SearchServiceImpl.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\service\ESManagerService.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\service\impl\ESManagerServiceImpl.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\config\RabbitMQConfig.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\SearchApplication.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\service\SearchService.java
+E:\APP\changgou_parent\changgou_service\changgou_service_search\src\main\java\com\changgou\search\listener\GoodsUpListener.java

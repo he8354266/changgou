@@ -1,19 +1,19 @@
 package com.changgou.web.order.controller;
 
+
+
 import com.changgou.order.feign.CartFeign;
 import com.changgou.order.feign.OrderFeign;
 import com.changgou.order.pojo.Order;
 import com.changgou.order.pojo.OrderItem;
 import com.changgou.pojo.Result;
+
 import com.changgou.user.feign.AddressFeign;
 import com.changgou.user.pojo.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -38,7 +38,7 @@ public class OrderController {
         List<Address> addressList = addressFeign.list().getData();
         model.addAttribute("address", addressList);
         //购物车信息
-        Map map =  cartFeign.list();
+        Map map = cartFeign.list();
 
 
         List<OrderItem> orderItemList = (List<OrderItem>) map.get("orderItemList");
@@ -64,5 +64,15 @@ public class OrderController {
     public Result add(@RequestBody Order order) {
         Result result = orderFeign.add(order);
         return result;
+    }
+
+    @GetMapping("/toPayPage")
+    public String toPayPage(@RequestParam("orderId")String orderId, Model model) {
+        //获取到订单的相关信息
+        System.out.println(orderFeign.findById(orderId));
+        Order order =  orderFeign.findById(orderId).getData();
+        model.addAttribute("orderId", orderId);
+        model.addAttribute("payMoney", order.getPayMoney());
+        return "pay";
     }
 }

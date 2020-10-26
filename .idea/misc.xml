@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_service/changgou_service_file/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_canal/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_common/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_web/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_service_api/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_service/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_eureka/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_common_db/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_canals/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_user_oauth/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_service_api/changgou_service_order_api/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_web/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_tests/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_service_api/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_canal/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_service_api/changgou_service_business_api/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_web/changgou_web_order/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_service/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/changgou_service/file/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_test/pom.xml" />
-      </set>
-    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/classes" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

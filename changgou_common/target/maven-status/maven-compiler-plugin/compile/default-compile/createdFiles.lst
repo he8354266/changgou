@@ -1,0 +1,5 @@
+com\changgou\pojo\Result.class
+com\changgou\pojo\PageResult.class
+com\changgou\pojo\StatusCode.class
+com\changgou\pojo\Page.class
+com\changgou\util\IdWorker.class

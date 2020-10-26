@@ -47,6 +47,7 @@ public class CartServiceImpl implements CartService {
         } else {
             //3.如果当前商品在redis中不存在,将商品添加到redis中
             Sku sku = skuFeign.findById(skuId).getData();
+            System.out.println(sku);
             System.out.println(sku.getSpuId());
             Spu spu = spuFeign.findSpuById(sku.getSpuId()).getData();
             if(spu!=null){

@@ -2,185 +2,41 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for changgou_web_order" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_web_order" />
-      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_common_fescar" />
-      </profile>
-      <profile name="Annotation profile for changgou_parent" enabled="true">
-        <sourceOutputDir name="../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="changgou-user-oauth" />
         <module name="changgou_canal" />
         <module name="changgou_common" />
         <module name="changgou_common_db" />
+        <module name="changgou_common_fescar" />
         <module name="changgou_eureka" />
         <module name="changgou_gateway" />
-        <module name="changgou_tests" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_page" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_page" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_goods" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_goods" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_order" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_order" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_config" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_config" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_business" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
         <module name="changgou_service_business" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_user" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_user" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_system" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_system" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_file" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_file" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_search" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_search" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_goods_api" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_goods_api" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_order_api" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_order_api" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_config_api" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_config_api" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_business_api" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
         <module name="changgou_service_business_api" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_system_api" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_system_api" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_user_api" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="changgou_service_user_api" />
-      </profile>
-      <profile name="Annotation profile for changgou_service_search_api" enabled="true">
-        <sourceOutputDir name="../../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
+        <module name="changgou_service_config" />
+        <module name="changgou_service_config_api" />
+        <module name="changgou_service_file" />
+        <module name="changgou_service_goods" />
+        <module name="changgou_service_goods_api" />
+        <module name="changgou_service_order" />
+        <module name="changgou_service_order_api" />
+        <module name="changgou_service_page" />
+        <module name="changgou_service_pay" />
+        <module name="changgou_service_pay_api" />
+        <module name="changgou_service_search" />
         <module name="changgou_service_search_api" />
+        <module name="changgou_service_system" />
+        <module name="changgou_service_system_api" />
+        <module name="changgou_service_user" />
+        <module name="changgou_service_user_api" />
+        <module name="changgou_web" />
+        <module name="changgou_web_order" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="changgou-user-oauth" target="1.5" />
-      <module name="changgou_canal" target="1.5" />
-      <module name="changgou_common" target="1.5" />
-      <module name="changgou_common_db" target="1.5" />
-      <module name="changgou_common_fescar" target="1.8" />
-      <module name="changgou_eureka" target="1.5" />
-      <module name="changgou_gateway" target="1.5" />
-      <module name="changgou_parent" target="1.8" />
-      <module name="changgou_parent (1)" target="1.5" />
-      <module name="changgou_service" target="1.5" />
-      <module name="changgou_service_api" target="1.5" />
-      <module name="changgou_service_business" target="1.5" />
-      <module name="changgou_service_business_api" target="1.5" />
-      <module name="changgou_service_config" target="1.5" />
-      <module name="changgou_service_config_api" target="1.5" />
-      <module name="changgou_service_file" target="1.5" />
-      <module name="changgou_service_fileupload" target="1.5" />
-      <module name="changgou_service_goods" target="1.5" />
-      <module name="changgou_service_goods_api" target="1.5" />
-      <module name="changgou_service_order" target="1.5" />
-      <module name="changgou_service_order_api" target="1.5" />
-      <module name="changgou_service_page" target="1.5" />
-      <module name="changgou_service_search" target="1.5" />
-      <module name="changgou_service_search_api" target="1.5" />
-      <module name="changgou_service_system" target="1.5" />
-      <module name="changgou_service_system_api" target="1.5" />
-      <module name="changgou_service_user" target="1.5" />
-      <module name="changgou_service_user_api" target="1.5" />
-      <module name="changgou_test" target="1.5" />
-      <module name="changgou_tests" target="1.5" />
-      <module name="changgou_user_oauth" target="1.8" />
-      <module name="changgou_web" target="1.5" />
-      <module name="changgou_web_order" target="1.5" />
-      <module name="file" target="1.8" />
+      <module name="changgou_web_order (1)" target="1.8" />
     </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="changgou_canal" options="-parameters" />
-      <module name="changgou_common" options="-parameters" />
-      <module name="changgou_common_db" options="-parameters" />
-      <module name="changgou_eureka" options="-parameters" />
-      <module name="changgou_gateway" options="-parameters" />
-      <module name="changgou_service_business" options="-parameters" />
-      <module name="changgou_service_business_api" options="-parameters" />
-      <module name="changgou_service_config" options="-parameters" />
-      <module name="changgou_service_config_api" options="-parameters" />
-      <module name="changgou_service_file" options="-parameters" />
-      <module name="changgou_service_goods" options="-parameters" />
-      <module name="changgou_service_goods_api" options="-parameters" />
-      <module name="changgou_service_order" options="-parameters" />
-      <module name="changgou_service_order_api" options="-parameters" />
-      <module name="changgou_service_system" options="-parameters" />
-      <module name="changgou_service_system_api" options="-parameters" />
-      <module name="changgou_service_user" options="-parameters" />
-      <module name="changgou_service_user_api" options="-parameters" />
-      <module name="changgou_web" options="-parameters" />
-    </option>
   </component>
 </project>
