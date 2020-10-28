@@ -12,4 +12,6 @@ public interface WXPayService {
 
     //基于微信查询订单
     Map queryOrder(String orderId);
+
+    Map closeOrder(String orderId);
 }
