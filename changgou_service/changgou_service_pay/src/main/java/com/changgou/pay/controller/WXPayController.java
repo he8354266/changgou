@@ -56,7 +56,7 @@ public class WXPayController {
      * @return
      */
     @GetMapping("/query/{orderId}")
-    public Result queryOrder(@PathVariable String orderId) {
+    public Result queryOrder(@PathVariable("orderId")String orderId) {
         Map map = wxPayService.queryOrder(orderId);
         return new Result(true, StatusCode.OK, "查询成功", map);
     }

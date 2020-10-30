@@ -17,6 +17,7 @@
         <module name="changgou_service_business_api" />
         <module name="changgou_service_config" />
         <module name="changgou_service_config_api" />
+        <module name="changgou_service_consume" />
         <module name="changgou_service_file" />
         <module name="changgou_service_goods" />
         <module name="changgou_service_goods_api" />
@@ -27,15 +28,19 @@
         <module name="changgou_service_pay_api" />
         <module name="changgou_service_search" />
         <module name="changgou_service_search_api" />
+        <module name="changgou_service_seckill" />
+        <module name="changgou_service_seckill_api" />
         <module name="changgou_service_system" />
         <module name="changgou_service_system_api" />
         <module name="changgou_service_user" />
         <module name="changgou_service_user_api" />
-        <module name="changgou_web" />
+        <module name="changgou_task" />
         <module name="changgou_web_order" />
+        <module name="changgou_web_seckill" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="changgou_service_seckills" target="1.8" />
       <module name="changgou_web_order (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>

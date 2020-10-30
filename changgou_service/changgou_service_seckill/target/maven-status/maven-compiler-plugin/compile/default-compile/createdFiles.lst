@@ -1,0 +1,8 @@
+com\changgou\seckill\dao\SeckillGoodsMapper.class
+com\changgou\seckill\service\SecKillGoodsService.class
+com\changgou\seckill\task\SeckillGoodsPushTask.class
+com\changgou\seckill\SecKillApplication.class
+com\changgou\seckill\dao\SeckillOrderMapper.class
+com\changgou\seckill\controller\SecKillGoodsController.class
+com\changgou\seckill\service\impl\SecKillGoodsServiceImpl.class
+com\changgou\seckill\config\ResourceServerConfig.class

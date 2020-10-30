@@ -4,14 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fescar.spring.annotation.GlobalTransactional;
 import com.changgou.goods.feign.SkuFeign;
 import com.changgou.order.config.RabbitMQConfig;
-import com.changgou.order.dao.OrderItemMapper;
-import com.changgou.order.dao.OrderLogMapper;
-import com.changgou.order.dao.OrderMapper;
-import com.changgou.order.dao.TaskMapper;
-import com.changgou.order.pojo.Order;
-import com.changgou.order.pojo.OrderItem;
-import com.changgou.order.pojo.OrderLog;
-import com.changgou.order.pojo.Task;
+import com.changgou.order.dao.*;
+import com.changgou.order.pojo.*;
 import com.changgou.order.service.CartService;
 import com.changgou.order.service.OrderService;
 import com.changgou.pay.feign.PayFeign;
@@ -19,12 +13,14 @@ import com.changgou.user.feign.UserFeign;
 import com.changgou.util.IdWorker;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +51,10 @@ public class OrderServiceImpl implements OrderService {
     private OrderLogMapper orderLogMapper;
     @Autowired
     private PayFeign payFeign;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+    @Autowired
+    private OrderConfigMapper orderConfigMapper;
 
     /**
      * 查询全部列表
@@ -137,6 +137,9 @@ public class OrderServiceImpl implements OrderService {
 
         //5.删除购物车数据(redis)
         redisTemplate.delete("cart_" + username);
+
+        //发送延迟消息
+        rabbitTemplate.convertAndSend("", "queue.ordercreate", orderId);
         return orderId;
     }
 
@@ -242,7 +245,7 @@ public class OrderServiceImpl implements OrderService {
         }
         System.out.println("关闭订单校验通过:" + orderId);
         //基于微信查询订单信息
-        Map wxQueryMap = (Map) payFeign.queryOrder(orderId).getData();
+        Map wxQueryMap = (Map) payFeign.closeOrder(orderId).getData();
         System.out.println("查询微信支付订单：" + wxQueryMap);
 
         //如果订单的支付状态为已支付,进行数据补偿(mysql)
@@ -271,10 +274,108 @@ public class OrderServiceImpl implements OrderService {
             orderItem.setOrderId(orderId);
             List<OrderItem> orderItemList = orderItemMapper.select(orderItem);
 
-            for(OrderItem orderItem1:orderItemList){
+            for (OrderItem orderItem1 : orderItemList) {
+                skuFeign.resumeStockNum(orderItem1.getSkuId(), orderItem1.getNum());
+            }
+            //基于微信关闭订单
+            payFeign.closeOrder(orderId);
+        }
+    }
 
+    @Override
+    public void batchSend(List<Order> orders) {
+        //判断运单号和物流公司是否为空
+        for (Order order : orders) {
+            if (order.getId() == null) {
+                throw new RuntimeException("订单号为空");
+            }
+            if (order.getShippingCode() == null || order.getShippingName() == null) {
+                throw new RuntimeException("请选择快递公司和填写快递单号");
             }
         }
+        //循环订单,进行状态校验
+        for (Order order : orders) {
+            Order order1 = orderMapper.selectByPrimaryKey(order.getId());
+            if (!"0".equals(order1.getConsignStatus()) || !"1".equals(order1.getOrderStatus())) {
+                throw new RuntimeException("订单状态有误！");
+            }
+        }
+        //循环订单更新操作
+        for (Order order : orders) {
+            order.setOrderStatus("2"); //订单状态 已发货
+            order.setConsignStatus("1");  //发货状态 已发货
+            order.setConsignTime(new Date());  //发货时间
+            order.setUpdateTime(new Date());  //更新时间
+            orderMapper.updateByPrimaryKeySelective(order);
+
+            //记录订单变动日志
+            OrderLog orderLog = new OrderLog();
+            orderLog.setId(idWorker.nextId() + "");
+            orderLog.setOperateTime(new Date()); //当前日期
+            orderLog.setOperater("admin"); //系统管理员
+            orderLog.setOrderStatus("2");  //已完成
+            orderLog.setConsignStatus("1"); //发状态（0未发货 1已发货）
+            orderLog.setOrderId(order.getId());
+            orderLogMapper.insertSelective(orderLog);
+        }
+    }
+
+    @Override
+    public void confirmTask(String orderId, String operator) {
+        Order order = orderMapper.selectByPrimaryKey(orderId);
+        if (order == null) {
+            throw new RuntimeException("订单不存在");
+        }
+        if (!"1".equals(order.getConsignStatus())) {
+            throw new RuntimeException("订单未发货");
+        }
+        order.setConsignStatus("2"); //已送达
+        order.setOrderStatus("3"); //已完成
+        order.setUpdateTime(new Date());
+        order.setEndTime(new Date());
+        orderMapper.updateByPrimaryKeySelective(order);
+
+        //记录订单日志
+        OrderLog orderLog = new OrderLog();
+        orderLog.setId(idWorker.nextId() + "");
+        orderLog.setOperateTime(new Date());
+        orderLog.setOperater(operator);
+        orderLog.setOrderStatus("3");
+        orderLog.setConsignStatus("2");
+        orderLog.setOrderId(order.getId());
+        orderLogMapper.insertSelective(orderLog);
+    }
+
+    @Override
+    public void autoTack() {
+        /**
+         * 1.从订单配置表中获取到订单自动确认的时间点
+         * 2. 得到当前时间节点,向前数 ( 订单自动确认的时间节点 ) 天,作为过期的时间节点
+         * 3. 从订单表中获取相关符合条件的数据 (发货时间小于过期时间,收货状态为未确认 )
+         * 4.循环遍历,执行确认收货
+         */
+
+        //读取订单配置信息
+        OrderConfig orderConfig = orderConfigMapper.selectByPrimaryKey(1);
+        //获得时间节点
+        LocalDate now = LocalDate.now();
+
+        LocalDate date = now.plusDays(-orderConfig.getTakeTimeout());
+
+        //按条件查询，获取订单列表
+        Example example = new Example(Order.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andLessThan("consignTime",date);
+        criteria.andEqualTo("orderStatus","2");
+        List<Order> orderList = orderMapper.selectByExample(example);
+
+        for (Order order:orderList){
+            this.confirmTask(order.getId(),"system");
+        }
+
+
+
+
     }
 
     /**

@@ -28,6 +28,8 @@ public class RabbitMQConfig {
     public static final String CG_BUYING_FINISHADDPOINT_KEY = "finishaddpoint";
     //支付订单
     public static final String ORDER_PAY = "order_pay";
+    //确认收货
+    public static final String ORDER_TACK = "order_tack";
 
     //声明交换机
     @Bean(EX_BUYING_ADDPOINTUSER)
@@ -50,6 +52,12 @@ public class RabbitMQConfig {
     @Bean(CG_BUYING_FINISHADDPOINT)
     public Queue CG_BUYING_FINISHADDPOINT() {
         Queue queue = new Queue(CG_BUYING_FINISHADDPOINT);
+        return queue;
+    }
+
+    @Bean(ORDER_TACK)
+    public Queue ORDER_TACK() {
+        Queue queue = new Queue(ORDER_TACK);
         return queue;
     }
 

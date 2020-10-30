@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "pay")
 public interface PayFeign {
     @GetMapping("/wxpay/nativePay")
-    public Result nativePay(@RequestParam("orderId") String orderId, @RequestParam("money") Integer money);
+    public Result nativePay(@RequestParam("orderId") String orderId, @RequestParam("money")Integer money);
+
+    @GetMapping("/wxpay/query/{orderId}")
+    public Result queryOrder(@PathVariable("orderId") String orderId);
 
     @PutMapping("/wxpay/close/{orderId}")
     public Result closeOrder(@PathVariable("orderId") String orderId);
-
-    @GetMapping("/wxpay/query/{orderId}")
-    public Result queryOrder(@PathVariable String orderId);
 }

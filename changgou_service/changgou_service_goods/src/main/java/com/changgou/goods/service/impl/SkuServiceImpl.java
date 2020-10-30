@@ -9,6 +9,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -119,6 +120,12 @@ private RedisTemplate redisTemplate;
                 throw new RuntimeException("库存不足,请重试");
             }
         }
+    }
+
+    @Override
+    @Transactional
+    public void resumeStockNum(String skuId, Integer num) {
+        skuMapper.resumeStockNum(skuId,num);
     }
 
     /**

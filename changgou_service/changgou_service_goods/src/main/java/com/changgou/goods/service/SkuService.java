@@ -16,6 +16,7 @@ public interface SkuService {
 
     /**
      * 根据ID查询
+     *
      * @param id
      * @return
      */
@@ -65,5 +66,8 @@ public interface SkuService {
 
     //扣减库存
     void decrCount(String username);
+
+    //回滚库存
+    void resumeStockNum(String skuId, Integer num);
 
 }

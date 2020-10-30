@@ -1,0 +1,4 @@
+com\changgou\seckill\feign\SeckillFeign.class
+com\changgou\seckill\pojo\SeckillOrder.class
+com\changgou\seckill\pojo\SeckillGoods.class
+com\changgou\seckill\feign\SecKillGoodsFeign.class

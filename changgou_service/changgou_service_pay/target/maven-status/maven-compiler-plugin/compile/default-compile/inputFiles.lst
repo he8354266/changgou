@@ -6,6 +6,7 @@ E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\githu
 E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\com\changgou\pay\service\WXPayService.java
 E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\com\changgou\pay\config\RabbitMQConfig.java
 E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\github\wxpay\sdk\IWXPayDomain.java
+E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\com\changgou\pay\controller\WXPayController.java
 E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\github\wxpay\sdk\WXPayConstants.java
 E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\com\changgou\pay\service\impl\WXPayServiceImpl.java
 E:\APP\changgou_parent\changgou_service\changgou_service_pay\src\main\java\github\wxpay\sdk\WXPayUtil.java

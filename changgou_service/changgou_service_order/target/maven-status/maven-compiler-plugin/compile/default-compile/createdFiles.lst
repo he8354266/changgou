@@ -25,6 +25,7 @@ com\changgou\order\controller\BaseExceptionHandler.class
 com\changgou\order\dao\ReturnCauseMapper.class
 com\changgou\order\service\impl\LogServiceImpl.class
 com\changgou\order\controller\OrderItemController.class
+com\changgou\order\listener\OrderPayListener.class
 com\changgou\order\service\PreferentialService.class
 com\changgou\order\controller\PreferentialController.class
 com\changgou\order\controller\OrderConfigController.class
@@ -33,6 +34,7 @@ com\changgou\order\service\impl\ReturnCauseServiceImpl.class
 com\changgou\order\service\CartService.class
 com\changgou\order\controller\OrderController.class
 com\changgou\order\service\impl\ReturnOrderItemServiceImpl.class
+com\changgou\order\listener\OrderTimeOutListener.class
 com\changgou\order\service\impl\PreferentialServiceImpl.class
 com\changgou\order\service\ReturnOrderItemService.class
 com\changgou\order\service\OrderLogService.class
@@ -42,6 +44,7 @@ com\changgou\order\controller\ReturnCauseController.class
 com\changgou\order\config\RabbitMQConfig.class
 com\changgou\order\task\QueryPointTask.class
 com\changgou\order\service\OrderConfigService.class
+com\changgou\order\listener\OrderTaskListener.class
 com\changgou\order\service\ReturnCauseService.class
 com\changgou\order\controller\CartController.class
 com\changgou\order\dao\OrderConfigMapper.class
