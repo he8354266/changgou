@@ -3,6 +3,7 @@ package com.changgou.seckill.web.controller;
 import com.changgou.pojo.Result;
 import com.changgou.pojo.StatusCode;
 import com.changgou.seckill.feign.SecKillOrderFeign;
+import com.changgou.seckill.web.aspect.AccessLimit;
 import com.changgou.seckill.web.util.CookieUtil;
 import com.changgou.util.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class SecKillOrderController {
     private RedisTemplate redisTemplate;
 
     @RequestMapping("/add")
+    @AccessLimit
     public Result add(@RequestParam("time") String time, @RequestParam("id") Long id, String random) {
         String cookieValue = this.readCookie();
         String redisRandomCode = (String) redisTemplate.opsForValue().get("randomcode_" + cookieValue);
@@ -39,16 +41,17 @@ public class SecKillOrderController {
         if (!random.equals(redisRandomCode)) {
             return new Result(false, StatusCode.ERROR, "下单失败");
         }
-        Result result = secKillOrderFeign.add(time,id);
+        Result result = secKillOrderFeign.add(time, id);
         return result;
     }
+
     @GetMapping("/getToken")
     @ResponseBody
-    public String getToken(){
+    public String getToken() {
         String randomString = RandomUtil.getRandomString();
         String cookieValue = this.readCookie();
 
-        redisTemplate.opsForValue().set("randomcode_"+cookieValue,randomString,5,TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set("randomcode_" + cookieValue, randomString, 5, TimeUnit.SECONDS);
         return randomString;
     }
 

@@ -1,4 +1,4 @@
 E:\APP\changgou_parent\changgou_service_api\changgou_service_seckill_api\src\main\java\com\changgou\seckill\pojo\SeckillOrder.java
-E:\APP\changgou_parent\changgou_service_api\changgou_service_seckill_api\src\main\java\com\changgou\seckill\feign\SeckillFeign.java
+E:\APP\changgou_parent\changgou_service_api\changgou_service_seckill_api\src\main\java\com\changgou\seckill\feign\SecKillOrderFeign.java
 E:\APP\changgou_parent\changgou_service_api\changgou_service_seckill_api\src\main\java\com\changgou\seckill\feign\SecKillGoodsFeign.java
 E:\APP\changgou_parent\changgou_service_api\changgou_service_seckill_api\src\main\java\com\changgou\seckill\pojo\SeckillGoods.java
